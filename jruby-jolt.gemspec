@@ -15,7 +15,6 @@ Gem::Specification.new do |s|
   s.license       = 'MIT'
   s.platform      = 'java'
   s.files         = Dir['lib/**/*.rb', 'lib/**/*.jar']
-
   s.require_paths = ['lib']
 
   s.add_development_dependency "bundler", "~> 1.13"
