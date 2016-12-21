@@ -1,5 +1,20 @@
-sudo: false
 language: ruby
+
 rvm:
-  - 2.3.1
-before_install: gem install bundler -v 1.13.6
+  - jruby-9.1.5.0
+  - jruby-head
+
+sudo: false
+
+before_install:
+  - gem install bundler
+  - gem update bundler
+
+install: travis_retry bundle install
+
+script:
+  - bundle exec rake spec
+
+branches:
+  only:
+    - master
