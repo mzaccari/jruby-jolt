@@ -3,6 +3,7 @@ require 'jolt-core'
 require 'multi_json'
 
 require 'jruby-jolt/namespace'
+require 'jruby-jolt/errors'
 require 'jruby-jolt/chainr'
 require 'jruby-jolt/spec_store'
 
@@ -37,7 +38,7 @@ module Jolt
     end
 
     def transform(name, data)
-      raise "Spec not found: #{name}" unless @specs[name]
+      raise Jolt::SpecError.new("Spec not found: #{name}") unless @specs[name]
       @specs[name].transform(data)
     end
   end
