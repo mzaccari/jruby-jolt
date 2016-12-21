@@ -37,6 +37,10 @@ module Jolt
       end
     end
 
+    def clear_specs
+      @specs.clear
+    end
+
     def transform(name, data)
       raise Jolt::SpecError.new("Spec not found: #{name}") unless @specs[name]
       @specs[name].transform(data)
